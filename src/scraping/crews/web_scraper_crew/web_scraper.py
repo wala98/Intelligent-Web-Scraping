@@ -11,7 +11,7 @@ from crewai_tools import SeleniumScrapingTool , ScrapeWebsiteTool , ScrapeElemen
 llm = LLM(
     model="qwen/qwen3-next-80b-a3b-instruct",
     base_url= "https://integrate.api.nvidia.com/v1",
-    api_key= "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" ,
+    api_key= ,
     temperature=0.5,
     top_p=0.95,
     max_tokens=65536,
@@ -58,13 +58,6 @@ Scrape_Element_From_Website_Tool = ScrapeElementFromWebsiteTool()
 #Scrap_fly_Scrape_Website_Tool =  ScrapflyScrapeWebsiteTool()
 
 
-
-#llm = LLM(
- #   model="gemini/gemini-2.5-flash",
-    
-  #  api_key="AIzaSyANWqZp6fpzdBzSDAgKqkaC0CrnFsQVbZI",
-    
-#)
 
 
 
