@@ -1,0 +1,156 @@
+{
+  "summary": "After analyzing the website https://internships-climate.ipsl.fr/recherche/job/simuler-des-vagues-de-chaleur-extremes-en-europe-avec-le-systeme-aifs-lsce-59/, here’s what information can be scraped:\nJob title\nPublication date\nApplication deadline\nViews count\nOrganization name\nContact email\nRecruitment level\nInternship status\nDuration\nLocation\nSupervisor name\nSupervisor email\nSupervisor function\nResearch team\nInternship funding\nThesis possibility\nSubject themes\nKeywords\nAssociated IPSL research themes\nJob description\nWork proposal details\nInternship timeline\nRequired qualifications\nAcademic references",
+  "page_classification": "Academic/Research Internship Posting",
+  "content_type": "Single Job Listing",
+  "content_zones": [
+    {
+      "zone_name": "Header Navigation",
+      "css_selector": "header nav",
+      "description": "Main navigation menu with links to different sections of the internship portal"
+    },
+    {
+      "zone_name": "Job Title Section",
+      "css_selector": ".entry-title",
+      "description": "Contains the main job/internship title"
+    },
+    {
+      "zone_name": "Metadata Panel",
+      "css_selector": ".job-metadata",
+      "description": "Panel containing key dates, views, and basic internship information"
+    },
+    {
+      "zone_name": "Contact Information",
+      "css_selector": ".contact-info",
+      "description": "Section with supervisor contact details and organizational information"
+    },
+    {
+      "zone_name": "Internship Details",
+      "css_selector": ".internship-details",
+      "description": "Comprehensive section listing recruitment level, duration, location, and other administrative details"
+    },
+    {
+      "zone_name": "Description Section",
+      "css_selector": ".job-description",
+      "description": "Main content area with detailed job description, work proposal, and requirements"
+    },
+    {
+      "zone_name": "References Section",
+      "css_selector": ".references",
+      "description": "Academic references and bibliography related to the internship topic"
+    },
+    {
+      "zone_name": "Footer",
+      "css_selector": "footer",
+      "description": "Institutional information and social media links"
+    }
+  ],
+  "data_fields": [
+    {
+      "field_name": "Job Title",
+      "css_selector": "h1.entry-title",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Publication Date",
+      "css_selector": ".published-date",
+      "data_type": "date"
+    },
+    {
+      "field_name": "Application Deadline",
+      "css_selector": ".application-deadline",
+      "data_type": "date"
+    },
+    {
+      "field_name": "Views Count",
+      "css_selector": ".view-count",
+      "data_type": "integer"
+    },
+    {
+      "field_name": "Organization",
+      "css_selector": ".organization-name",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Contact Email",
+      "css_selector": ".contact-email",
+      "data_type": "email"
+    },
+    {
+      "field_name": "Recruitment Level",
+      "css_selector": ".recruitment-level",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Internship Status",
+      "css_selector": ".internship-status",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Duration",
+      "css_selector": ".duration",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Location",
+      "css_selector": ".location",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Supervisor Name",
+      "css_selector": ".supervisor-name",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Supervisor Email",
+      "css_selector": ".supervisor-email",
+      "data_type": "email"
+    },
+    {
+      "field_name": "Research Team",
+      "css_selector": ".research-team",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Funding Status",
+      "css_selector": ".funding-status",
+      "data_type": "boolean"
+    },
+    {
+      "field_name": "Thesis Possibility",
+      "css_selector": ".thesis-possibility",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Subject Themes",
+      "css_selector": ".subject-themes",
+      "data_type": "list"
+    },
+    {
+      "field_name": "Keywords",
+      "css_selector": ".keywords",
+      "data_type": "list"
+    },
+    {
+      "field_name": "Description Text",
+      "css_selector": ".description-content",
+      "data_type": "text"
+    }
+  ],
+  "structural_characteristics": [
+    "Single page detailed view layout",
+    "Clear hierarchical information organization",
+    "Consistent metadata panel at top",
+    "Structured internship details in labeled sections",
+    "Academic-style content formatting with references",
+    "Responsive design with mobile-friendly navigation",
+    "Standard institutional footer with legal information"
+  ],
+  "scraping_challenges": [
+    "Some information is embedded in text paragraphs rather than discrete elements",
+    "Date formats may vary across different fields",
+    "Contact information mixed with descriptive text",
+    "Reference section uses complex citation formatting",
+    "Some fields may require parsing of concatenated information",
+    "CSS selectors may need adjustment based on theme variations"
+  ]
+}

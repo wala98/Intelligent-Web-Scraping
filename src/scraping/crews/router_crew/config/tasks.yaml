@@ -1,0 +1,12 @@
+router_task:
+  description: >
+    Analyze the file located in the final segment of the provided path: {scraped_data_path}.
+    Extract and return ONLY the file extension (e.g., 'csv', 'json', 'txt') without the dot.
+    Do not return the full filename — only the extension itself.
+
+  expected_output: >
+    A single word representing the detected file extension (e.g., csv, json, txt). 
+    The output MUST NOT be empty. 
+    If no extension is found, return the word "unknown" instead of leaving the output blank.
+
+  agent: router_agent

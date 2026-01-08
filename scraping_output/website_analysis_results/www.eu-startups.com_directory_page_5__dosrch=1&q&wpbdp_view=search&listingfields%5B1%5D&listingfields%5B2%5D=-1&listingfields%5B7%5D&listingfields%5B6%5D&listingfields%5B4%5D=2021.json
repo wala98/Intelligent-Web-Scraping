@@ -1,0 +1,73 @@
+{
+  "summary": "After analyzing the website https://www.eu-startups.com/directory/page/5/?dosrch=1&q&wpbdp_view=search&listingfields%5B1%5D&listingfields%5B2%5D=-1&listingfields%5B7%5D&listingfields%5B6%5D&listingfields%5B4%5D=2021, here's what information can be scraped:\nBusiness Name\nCategory\nLocation (Based in)\nTags\nFounded Year\nNavigation links (Previous/Next)\nNewsletter subscription form fields",
+  "page_classification": "Startup Directory/Database",
+  "content_type": "Business Listings",
+  "content_zones": [
+    {
+      "zone_name": "Main Content Area",
+      "css_selector": ".wpbdp-main",
+      "description": "Contains the primary startup listing results"
+    },
+    {
+      "zone_name": "Individual Startup Cards",
+      "css_selector": ".wpbdp-listing",
+      "description": "Repeated blocks containing individual startup information"
+    },
+    {
+      "zone_name": "Pagination Navigation",
+      "css_selector": ".wpbdp-pagination",
+      "description": "Navigation controls for moving between pages of results"
+    },
+    {
+      "zone_name": "Sidebar/Search Area",
+      "css_selector": ".wpbdp-search-form",
+      "description": "Contains search functionality and filters"
+    }
+  ],
+  "data_fields": [
+    {
+      "field_name": "Business Name",
+      "css_selector": ".wpbdp-listing .business-name",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Category",
+      "css_selector": ".wpbdp-listing .category",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Location",
+      "css_selector": ".wpbdp-listing .based-in",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Tags",
+      "css_selector": ".wpbdp-listing .tags",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Founded Year",
+      "css_selector": ".wpbdp-listing .founded",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Navigation Links",
+      "css_selector": ".wpbdp-pagination a",
+      "data_type": "url"
+    }
+  ],
+  "structural_characteristics": [
+    "Grid-based layout with repeating listing cards",
+    "Consistent structure for each business entry",
+    "Pagination system for navigating multiple pages",
+    "Mixed content with sidebar navigation and main content area",
+    "Text-based information without prominent images"
+  ],
+  "scraping_challenges": [
+    "Content appears to be loaded dynamically through a WordPress plugin (WPBDP)",
+    "May require handling pagination to get all results",
+    "CSS class names appear to be auto-generated and may change",
+    "No clear visual separation between different data fields in HTML structure",
+    "Potential need for session management if search filters are applied"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "summary": "After analyzing the website https://www.cribconnects.com/en/werken-bij, here's what information can be scraped: job application form fields (first name, surname, email, telephone, function, CV upload, motivation upload, LinkedIn URL, notes), company contact information (address, chamber of commerce number, phone number), navigation menu items, and footer links.",
+  "page_classification": "Career/Jobs",
+  "content_type": "Job Application Form",
+  "content_zones": [
+    {
+      "zone_name": "Application Form",
+      "css_selector": "form",
+      "description": "Main job application form with input fields for personal and professional information"
+    },
+    {
+      "zone_name": "Contact Information",
+      "css_selector": ".footer-content",
+      "description": "Company address, chamber of commerce number and phone number"
+    },
+    {
+      "zone_name": "Navigation Menu",
+      "css_selector": ".menu-items",
+      "description": "Main navigation menu with site links"
+    },
+    {
+      "zone_name": "Footer Links",
+      "css_selector": ".socials",
+      "description": "Social media and additional links in footer section"
+    }
+  ],
+  "data_fields": [
+    {
+      "field_name": "First Name",
+      "css_selector": "input[name='First name']",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Surname",
+      "css_selector": "input[name='Surname']",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Email",
+      "css_selector": "input[name='E-mail']",
+      "data_type": "email"
+    },
+    {
+      "field_name": "Telephone",
+      "css_selector": "input[name='Telephone']",
+      "data_type": "tel"
+    },
+    {
+      "field_name": "Function",
+      "css_selector": "select[name='Function']",
+      "data_type": "select"
+    },
+    {
+      "field_name": "CV Upload",
+      "css_selector": "input[type='file'][name*='CV']",
+      "data_type": "file"
+    },
+    {
+      "field_name": "Motivation Upload",
+      "css_selector": "input[type='file'][name*='Movitation']",
+      "data_type": "file"
+    },
+    {
+      "field_name": "LinkedIn URL",
+      "css_selector": "input[name='URL LinkedIn']",
+      "data_type": "url"
+    },
+    {
+      "field_name": "Notes",
+      "css_selector": "textarea[name='Notes']",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Company Address",
+      "css_selector": ".footer-content address",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Chamber of Commerce",
+      "css_selector": ".footer-content .chamber",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Phone Number",
+      "css_selector": ".footer-content .phone",
+      "data_type": "tel"
+    }
+  ],
+  "structural_characteristics": [
+    "Simple single-page application form layout",
+    "Form-based data collection structure",
+    "Header navigation with multiple menu items",
+    "Footer section with contact details",
+    "Minimalist design with clear input fields",
+    "No complex repeating content blocks or cards"
+  ],
+  "scraping_challenges": [
+    "Form submission handling required for full interaction",
+    "File upload fields require special handling",
+    "Limited structured data due to simple form layout",
+    "No job listings or detailed career content to scrape",
+    "Potential dynamic content loading not visible in static HTML"
+  ]
+}

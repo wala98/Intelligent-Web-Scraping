@@ -1,0 +1,13 @@
+task_retrieval:
+  description: >
+    Analyze the user questions {user_questions} and search through all available documents
+    to extract the most relevant information. Provide a clear, accurate, and
+    well-structured answer strictly based on the content of the retrieved documents.
+
+  expected_output: >
+    A complete and coherent answer synthesizing the most relevant information
+    from the documents. All key details must be supported by the retrieved content.
+    The response should NOT be empty; if no information is found, explicitly answer:
+    "No relevant information found in the provided documents."
+
+  agent: retriever_agent

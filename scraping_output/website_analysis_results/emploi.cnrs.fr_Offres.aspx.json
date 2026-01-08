@@ -1,0 +1,58 @@
+{
+  "summary": "After analyzing the website https://emploi.cnrs.fr/Offres.aspx, here’s what information can be scraped: \nJob titles\nResearch units/laboratories\nWork locations\nEmployment types (CDI, CDD, etc.)\nPublication dates\nGeographic regions\nKeywords related to job functions",
+  "page_classification": "Job board/Employment listing",
+  "content_type": "Academic research positions",
+  "content_zones": [
+    {
+      "zone_name": "Main job listings table",
+      "css_selector": "table[role='grid']",
+      "description": "Primary container displaying all job postings in tabular format with sortable columns"
+    },
+    {
+      "zone_name": "Individual job rows",
+      "css_selector": "tr[data-key]",
+      "description": "Each row represents a single job posting with multiple data fields"
+    }
+  ],
+  "data_fields": [
+    {
+      "field_name": "Publication date",
+      "css_selector": "td:nth-child(1)",
+      "data_type": "date"
+    },
+    {
+      "field_name": "Job title and unit",
+      "css_selector": "td:nth-child(2)",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Work location",
+      "css_selector": "td:nth-child(3)",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Geographic region",
+      "css_selector": "td:nth-child(4)",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Employment type",
+      "css_selector": "td:nth-child(5)",
+      "data_type": "text"
+    }
+  ],
+  "structural_characteristics": [
+    "Tabular data structure with sortable headers",
+    "Consistent row-based job listings",
+    "Standardized data fields across all entries",
+    "Pagination for large result sets",
+    "Filter options by geographic region and employment type"
+  ],
+  "scraping_challenges": [
+    "Dynamic content loading may require JavaScript execution",
+    "Date formats may need normalization",
+    "Some fields contain concatenated information requiring parsing",
+    "Potential rate limiting or access restrictions",
+    "Content may be loaded asynchronously through AJAX calls"
+  ]
+}

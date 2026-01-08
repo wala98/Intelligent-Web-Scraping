@@ -1,0 +1,63 @@
+{
+  "summary": "After analyzing the website https://www.freechildrenstories.com/guardians-of-lore, here’s what information can be scraped: \nStory chapter titles\n, Full story text content\n, Navigation menu items\n, Copyright information\n, Table of contents with chapter links\n",
+  "page_classification": "Children's Story Website",
+  "content_type": "Fictional Narrative Content",
+  "content_zones": [
+    {
+      "zone_name": "Navigation Menu",
+      "css_selector": "nav",
+      "description": "Top navigation bar with site links"
+    },
+    {
+      "zone_name": "Main Content Area",
+      "css_selector": ".entry-content",
+      "description": "Primary story content area containing chapters and text"
+    },
+    {
+      "zone_name": "Table of Contents",
+      "css_selector": ".entry-content > p:contains('Table of Contents')",
+      "description": "List of chapter titles and navigation links"
+    },
+    {
+      "zone_name": "Footer Information",
+      "css_selector": "footer",
+      "description": "Copyright and legal information"
+    }
+  ],
+  "data_fields": [
+    {
+      "field_name": "Chapter Titles",
+      "css_selector": ".entry-content h2",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Story Text",
+      "css_selector": ".entry-content p",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Navigation Links",
+      "css_selector": "nav a",
+      "data_type": "text"
+    },
+    {
+      "field_name": "Copyright Text",
+      "css_selector": "footer p",
+      "data_type": "text"
+    }
+  ],
+  "structural_characteristics": [
+    "Hierarchical chapter structure with numbered headings",
+    "Long-form narrative content organized in paragraphs",
+    "Consistent navigation menu across the site",
+    "Table of contents at both beginning and end of story",
+    "Epilogue sections following main chapters"
+  ],
+  "scraping_challenges": [
+    "Large volume of text content requiring significant processing",
+    "No unique identifiers for different content sections",
+    "Text content spans multiple paragraph elements without clear chapter boundaries",
+    "Mixed content including story text, navigation, and metadata",
+    "Potential copyright restrictions on content usage"
+  ]
+}

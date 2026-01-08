@@ -1,0 +1,32 @@
+web_analyser_task :
+  description : >
+    Given a {website_url}, load the page, extract its HTML content, and analyze the page layout.
+    Detect patterns such as repeating content blocks (cards, rows, tables) and identify what kind of useful information
+    is contained in those blocks (e.g., job titles, product names, prices, contact info, images, etc.).
+ 
+    Your analysis should :
+    - Identify key scrapable content
+    - Describe how it is structured (e.g., repeated divs, table rows)
+    - Mention relevant HTML tags or classes to locate the content
+    - Be domain-agnostic (works for e-commerce, jobs, schools, etc.)
+
+  expected_output : > 
+
+    A natural language summary. Clearly state what kind of information can be extracted from the website.
+    Format your answer like : 
+    'After analyzing the website {website_url}, here’s what information can be scraped: 
+    [item1]\n , [item2]\n, [item3]\n, ...'
+
+    Only include the most useful or frequently repeated elements, and keep the phrasing user-friendly.
+    Be concise and to the point.
+
+
+    Structured WebAnalysis JSON with:
+            - Page classification and content type
+            - Identified content zones with CSS selectors
+            - Catalog of available data fields
+            - Structural characteristics
+            - Potential scraping challenges
+
+
+  agent :  web_analyser_agent

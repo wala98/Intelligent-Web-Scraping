@@ -1,0 +1,36 @@
+universal_scraping_task:
+  description: >
+      Perform adaptive, analysis-driven data extraction from any online source —
+      whether static HTML, dynamic JavaScript-rendered pages, or structured APIs.
+
+
+      Process:
+      
+      - Analyze {analysis_results} to identify site type, structure, and challenges
+      - Automatically determine the best extraction approach:
+           1. For static pages: Use scrape to get full content
+           2. For specific elements on static pages: Use Scrape_Element_From_Website_Tool with CSS selector
+           3. For dynamic/JavaScript sites: Use selenium with wait_time=30
+      - Implement wait strategies, pagination, rate limiting, and session management when needed
+      - Handle user interactions (forms, filters, logins) if required
+      - Perform data validation, cleaning, and type conversion (text, integer, float, scientific)
+      - Gracefully handle missing or 'None' values and duplicates
+      - Ensure consistent schema alignment with user requirements
+      - Include metadata such as source URL and extraction timestamp
+
+  expected_output: >
+      A retrieval-ready dataset optimized for RAG workflows, containing:
+        - All data fields specified by {user_requirements}, extracted with high fidelity
+        - Data stored in the most suitable format depending on the content type:
+                • Textual data → JSON, TXT, or Markdown
+                • Structured data → JSON or CSV
+                • Document files → Original format + extracted text
+                • Multimedia → Original file plus textual descriptors
+        - Cleaned, normalized, and type-consistent content suitable for embedding models
+        - Use the FileWriterTool to save your results.
+                Provide three arguments:
+                1. filename: Name of the file (e.g., 'report.txt', 'data.json')
+                2. content: The actual content to write
+                3. directory: Target directory path = "C:\Users\walam\Desktop\scraping\scraping_output\scrapped_data"
+
+  agent: universal_scraper_agent

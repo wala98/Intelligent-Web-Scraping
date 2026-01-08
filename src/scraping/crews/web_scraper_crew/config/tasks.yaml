@@ -1,0 +1,176 @@
+
+# Analysis-driven coordination task
+manager_task : 
+    description : > 
+      
+      read and undrestand whats the user want to scrape  {user_requirements}
+      1. Read and parse the {analysis_results} file to understand website characteristics
+      2. Determine optimal scraping strategy based on 'page_classification'
+      3.  based on 'structural_characteristics' Delegate migration to the correct agent: :
+        
+        Route simple static website content to  → static_agent 
+        Assign dynamic content  website to → dynamic_agent 
+        Use API scraper for high-volume or complex processing → api_agent 
+         
+      4. Monitor progress against 'scraping_challenges' predictions
+      5. Coordinate data validation using analysis schema
+
+      The delegate work tool expects these parameters:
+        - task: str - Description of the task to delegate 
+        - context: str - Context information (must be a string, not a dict) 
+        - coworker: str - Name/role of the coworker to delegate to
+      
+      
+      
+      Quality assurance:
+      - Validate all outputs against analysis expectations
+      - Coordinate error handling and retry logic
+      - Ensure comprehensive coverage of all data fields
+      - Monitor performance against analysis predictions
+    
+    expected_output : > 
+     A CSV file containing:
+        - All data fields specified by {user_requirements}
+        - Properly validated and cleaned data
+        - Correct data types 
+
+    agent: manager_Agent
+    
+static_task:
+    description: >
+        you will receive : - {analysis_results} : a repport of website characteristics
+
+        Process:
+        - read and undrestand whats the user want to scrape  from {user_requirements}
+        - Read the web analysis_results to understand the page structure, content zones, and challenges
+        - Use CSS selectors provided in 'data_fields'
+        - Focus only on the user-specified fields to extract
+        - Handle structural characteristics and scraping challenges
+        - Perform proper data cleaning and type conversion (text, integer, float, scientific notation)
+        - Ensure missing values (e.g., 'None') are handled gracefully
+        - Support large datasets with rate limiting when required
+        - Format the data as CSV with appropriate headers
+
+        Validate extracted data against user requirements and ensure schema alignment.
+
+    expected_output: >
+        A CSV file containing:
+        - the data fields specified by {user_requirements} 
+        - Properly validated and cleaned data
+        - Correct data types 
+        - Handling of missing or 'None' values
+        - Consistent record structure across the dataset
+        - Metadata (source URL, extraction timestamp) included in the CSV header or separate log
+        - Row count of successfully extracted records
+    agent : static_agent
+        
+
+# Unified dynamic content and interaction scraping task
+dynamic_task :
+    description : >
+        Perform JavaScript-heavy website scraping and complex interactions by combining:
+        1. Dynamic content scraping based on the web analysis file
+        2. Complex browser interactions if required
+
+        Analysis-driven approach:
+        - read and undrestand whats the user want to scrape  from {user_requirements}
+        - Review 'page_classification' to understand site type
+        - Check 'structural_characteristics' for dynamic content indicators
+        - Use 'scraping_challenges' to prepare for potential issues
+        - Implement appropriate wait strategies for content loading
+        - Handle interactive elements, forms, and multi-step processes
+        - Maintain session state and handle CAPTCHAs or anti-bot measures if required
+
+        Execution based on analysis insights:
+        - Simple static content: Use minimal JavaScript execution
+        - Complex interactions: Full browser automation using Selenium/Hyperbrowser
+        - Large datasets: Pagination handling and rate limiting
+        - Interactive elements: Forms, filters, search functionality, cookie/privacy settings
+
+        you will receive : 
+                           - {analysis_results} : a repport of website characteristics
+
+
+    expected_output : >
+        A CSV file containing:
+        - All data fields specified by {user_requirements} 
+        - Properly validated and cleaned data
+        - Correct data types 
+        - Handling of missing or 'None' values
+        - Consistent record structure across the dataset
+        - Metadata (source URL, extraction timestamp) included in the CSV header or separate log
+        - Row count of successfully extracted records
+    agent : dynamic_agent
+    
+
+
+api_task:
+  description: >
+    Perform optimized, high-volume scraping using advanced APIs and process/validate the content based on web analysis insights.
+
+    Analysis-driven optimization:
+    - Use 'structural_characteristics' to optimize scraping strategy
+    - Apply 'scraping_challenges' insights for robust error handling
+    - Implement rate limiting and batch processing for large datasets (250+ items)
+    - Use proxy rotation if anti-bot measures are detected
+    - Optimize request patterns based on page structure analysis
+
+    Content processing and validation:
+    - Read the analysis file to understand expected data structure and data_fields
+    - Validate extracted data against analysis specifications
+    - Apply type conversions (text, integer, float, scientific notation)
+    - Handle missing values ('None') and duplicates
+    - Generate quality metrics and error reports
+    - Provide recommendations for improving data quality
+
+    Scaling considerations:
+    - High-speed extraction for simple structures
+    - Intelligent parsing strategies for complex layouts
+    - Respectful delays for rate-limited sites
+
+  expected_output: >
+    A CSV file containing:
+        - All data fields specified by {user_requirements} 
+        - Properly validated and cleaned data
+        - Correct data types 
+        - Handling of missing or 'None' values
+        - Consistent record structure across the dataset
+        - Metadata (source URL, extraction timestamp) included in the CSV header or separate log
+        - Row count of successfully extracted records
+  agent : api_agent
+
+
+
+# Comprehensive validation against analysis
+#validation_task = Task(
+ #   description="""
+  #  Perform comprehensive validation of all scraping results against the web analysis file.
+    
+   # Validation framework:
+    #1. Read the original analysis file as the validation schema
+ #   2. Compare extracted data against expected 'data_fields'
+  #  3. Verify data completeness based on 'content_zones'
+   # 4. Assess handling of 'scraping_challenges'
+    #5. Generate compliance report against analysis predictions
+    
+    #Validation checks:
+   # - Schema compliance (all expected fields present)
+    #- Data type accuracy (text, integer, float as specified)
+#    - Volume validation (expected number of records)
+ #   - Quality assessment (handling of edge cases)
+  #  - Performance evaluation (extraction efficiency)
+   # """,
+    #expected_output="""
+#    Comprehensive validation report:
+ #   - Schema compliance percentage
+  #  - Data quality metrics by field
+   # - Challenge handling effectiveness
+    #- Performance benchmarks
+#    - Recommendations for scraping improvements
+ #   - Comparison between different scraping methods
+  #  """,
+   # agent=api_scraper,
+#    tools=[FileReadTool()],
+#    context=[html_extraction_task, js_scraping_task, api_scraping_task, content_processing_task],
+ #   output_file="output/validation_report.json"
+#)
