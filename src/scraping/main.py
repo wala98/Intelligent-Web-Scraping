@@ -197,7 +197,7 @@ class WebScrapingFlow(Flow[WebScrapingState]):
         llm = LLM(
                 model="qwen/qwen3-coder-480b-a35b-instruct",
                 base_url= "https://integrate.api.nvidia.com/v1",
-                api_key= "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" ,
+                api_key=  ,
                 temperature=0.5,
                 top_p=0.95,
                 max_tokens=65536,
